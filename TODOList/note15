@@ -1,0 +1,26 @@
+use <RIOTBASE> as the path to the
+root of RIOT. You should replace that with your own path.
+
+1. Go to the application directory:
+   $ cd <RIOTBASE>/tests/shell
+
+2. Build and flash the application for your board:
+
+   $ BOARD=thingy91 make all flash
+
+3. Now we have to start the JLink debugger manually (this is the part
+that is not currently working for some reason). For this you need the
+JLink software, which we installed yesterday (don't forget to replace
+<RIOTBASE> with your path):
+
+   $ JLinkExe -nogui 1 -exitonerror 1 -device "NRF9160_XXAA" -speed
+"2000" -if "SWD" -jtagconf -1,-1 -commandfile
+<RIOTBASE>/dist/tools/jlink/term.seg
+
+4. On ANOTHER terminal, execute pyterm on the correct port:
+
+   $ <RIOTBASE>/dist/tools/pyterm/pyterm -ts 19021
+
+You should see RIOT shell's prompt ('>'), if not try pressing Enter.
+
+
