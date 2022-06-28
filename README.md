@@ -1,2 +1,2 @@
-Branch11 of RIOT_OS
-# branch11
+Information for the Development on RIOTOS for
+the Thingy91
